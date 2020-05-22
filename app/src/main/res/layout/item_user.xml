@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="76dp"
+            android:padding="10dp"
+            android:layout_height="76dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgIcon"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:background="@color/colorPrimary"
+                app:srcCompat="@drawable/personal"
+                tools:ignore="VectorDrawableCompat" />
+        </RelativeLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtvTexto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="120dp"
+            android:textColor="@color/colorPrimary"
+            tools:ignore="NotSibling" />
+
+    <ImageButton
+        android:id="@+id/ibtnDetalles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="10dp"
+        android:background="#00FFFFFF"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
+</RelativeLayout>
