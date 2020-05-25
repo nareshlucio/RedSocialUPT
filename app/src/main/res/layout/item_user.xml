@@ -21,6 +21,7 @@
                 tools:ignore="VectorDrawableCompat" />
         </RelativeLayout>
         <androidx.appcompat.widget.AppCompatTextView
+
             android:id="@+id/txtvTexto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -8,38 +8,41 @@
 
     <TextView
         android:id="@+id/txtvTitutlo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="222dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="36dp"
         android:fontFamily="monospace"
-        android:text="R  E  G  I  S  T  R  O"
+        android:text="REGISTRATE"
+        android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/edtUser"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.047" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edtUser"
-        android:layout_width="259dp"
+        android:layout_width="300dp"
         android:layout_height="45dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginBottom="356dp"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="Nombre de Usuario"
         android:inputType="textPersonName"
         android:textColorHint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/txtvRegresar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtvTitutlo" />
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtvSubTitile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="260dp"
+        android:layout_marginBottom="172dp"
         android:text="Ya tienes cuenta ?"
         android:textColor="#000000"
         android:textSize="14sp"
@@ -55,17 +58,18 @@
         android:text="Iniciar Sesion"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtvSubTitile"
-        app:layout_constraintVertical_bias="0.008" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/edtPassword2"
-        android:layout_width="262dp"
-        android:layout_height="43dp"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Repetir Contraseña"
@@ -78,8 +82,8 @@
 
     <EditText
         android:id="@+id/edtPassword"
-        android:layout_width="258dp"
-        android:layout_height="42dp"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Contraseña"
@@ -92,15 +96,23 @@
 
     <Button
         android:id="@+id/btnRegistrarse"
-        android:layout_width="164dp"
-        android:layout_height="45dp"
-        android:background="@android:color/holo_orange_dark"
+        android:layout_width="249dp"
+        android:layout_height="34dp"
+        android:background="@drawable/boton_redondol"
         android:text="Registrarse"
         app:layout_constraintBottom_toTopOf="@+id/txtvSubTitile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPassword2"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintVertical_bias="0.581" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtvTitutlo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/imageverde" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

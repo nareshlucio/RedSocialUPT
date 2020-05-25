@@ -36,43 +36,55 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //----------------------Inicializacion de Variables-----------------------------
         servicio = API.getApi(MainActivity.this).create(ServiceApi.class);
         txtvRegistrarse = findViewById(R.id.txtvRegistrar);
         final EditText edtCorreo = findViewById(R.id.edtEmail), edtPassword = findViewById(R.id.edtPassword);
         btnIniciar = findViewById(R.id.btnInicio);
         sesion = findViewById(R.id.swSesion);
-        verificarPreferencias();
+        //-----------------------Fin de la Inicializacion de Variables------------------
+        getSupportActionBar().hide();//Esconde el ActionBar
+        verificarPreferencias();//Verifica si inicio Sesion Antes
+        //Texto que manda a la actividad de Registro
         txtvRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Manda a la Actividad de Registro
                 startActivity(new Intent(MainActivity.this, Activity_Registro.class));
             }
         });
-
+        //Boton Para Iniciar Sesion
         btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Comprobacion De los Campos
                 if(!edtCorreo.getText().toString().equals("") && !edtPassword.getText().toString().equals("")){
                     Peticion(edtCorreo.getText().toString(), edtPassword.getText().toString());
-                }else {
+                }else {//Mensaje de Alerta Si es que los campos estan vacios
                     Toast.makeText(MainActivity.this, "No Puedes Dejar los Campos Vacios", Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
-
+    //Metodo para Realizar Peticion a la API
     public void Peticion(String correo, String password){
+        //Se Hace la Peticion
         servicio.IniciarSesion(correo, password).enqueue(new Callback<Peticion_Login>() {
             @Override
             public void onResponse(Call<Peticion_Login> call, Response<Peticion_Login> response) {
+                //Si la peticion Fue Exitosa
                 if(response.isSuccessful()){
-                    if(response.body().getEstado()){
+                    //Si el estado es true
+                    if(response.body().getEstado()) {
+                        //Guardamos Token
                         APITOKEN = response.body().getToken();
+                        //Comprobamos si el switch de guardar sesion esta activo
                         if(sesion.isChecked())
                         GuardarPreferencias(APITOKEN);
-
+                        //Pasamos a la siguiente actividad
                         Toast.makeText(MainActivity.this, "Bienvenido!!", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(MainActivity.this, Dashboard.class));
+                        //Finalizamos Actividad de Login
                         finish();
                     }else
                         Toast.makeText(MainActivity.this, "Nombre de Usuario y/o Contraseña incorrecta", Toast.LENGTH_LONG).show();
@@ -82,13 +94,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Peticion_Login> call, Throwable t) {
-                Log.e("Error API", t.getMessage());
+                Log.e("Error API", t.getLocalizedMessage());
                 Log.e("Error Api", call.request().body().toString());
                 Toast.makeText(MainActivity.this, "A Ocurrido un error al conectar con el servidor", Toast.LENGTH_LONG).show();
             }
         });
     }
-
+    //Usamos metodo para Guardar el token para guardar la sesion
     public void GuardarPreferencias(String token){
 
         SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
@@ -96,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("TOKEN", token);
         editor.commit();
     }
-
+    //Funcion para porder verificar si existe alguna sesion guardada
     private void verificarPreferencias(){
         SharedPreferences preferencias = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
         String token = preferencias.getString("TOKEN", "");

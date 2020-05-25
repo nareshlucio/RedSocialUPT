@@ -20,11 +20,13 @@
         android:id="@+id/idMenu"
         android:layout_width="409dp"
         android:layout_height="105dp"
-        android:background="#FFEE58"
+        android:background="#bae265"
         app:layout_constraintBottom_toTopOf="@+id/rvLista"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.109">
 
         <TextView
             android:id="@+id/txtvUsuarios"
@@ -35,6 +37,7 @@
             android:text="Todos los Usuarios"
             android:textColor="#000000"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -42,13 +45,16 @@
 
         <Button
             android:id="@+id/btnSalir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_red_light"
+
+            android:layout_width="134dp"
+            android:layout_height="33dp"
+            android:background="@drawable/boton_redondo"
             android:text="LogOut"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.909"
             app:layout_constraintStart_toEndOf="@+id/txtvUsuarios"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.43" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
